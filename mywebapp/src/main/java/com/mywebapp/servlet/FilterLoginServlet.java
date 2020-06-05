@@ -25,7 +25,8 @@ public class FilterLoginServlet implements Filter {
 			throws IOException, ServletException {
 		System.out.println("************ Filter ****************");
 		String path = ((HttpServletRequest)request).getRequestURI();
-		if(path.contains("/error")) {
+		System.out.println("Path = "+path);
+		if(path.contains("/error") || path.contains("login")) {
 			chain.doFilter(request, response); // let's continue, only for error
 		}
 		else {
@@ -36,7 +37,7 @@ public class FilterLoginServlet implements Filter {
 				}
 				else {
 					System.out.println("Not logged redirection by Filter");
-					((HttpServletResponse)response).sendRedirect( ((HttpServletRequest)request).getContextPath() + "error?message=notLogged" );
+					((HttpServletResponse)response).sendRedirect( ((HttpServletRequest)request).getContextPath() + "/error?message=notLogged" );
 				}
 			}
 		}

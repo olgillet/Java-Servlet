@@ -5,6 +5,6 @@
 	}
 	</style>
 <header>
-	The marvellous webapp
+	<h1>The marvellous webapp<h1>
 </header>
 <br/><br/>
